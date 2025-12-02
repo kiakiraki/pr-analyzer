@@ -52,6 +52,3 @@ htmlcov/
 results/
 output/
 test-results*/
-
-# uv
-uv.lock
