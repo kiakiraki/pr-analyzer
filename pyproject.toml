@@ -13,6 +13,12 @@ dependencies = [
     "scipy>=1.14.0",
 ]
 
+[dependency-groups]
+dev = [
+    "ruff>=0.8.0",
+    "pyright>=1.1.0",
+]
+
 [project.scripts]
 pr-analyze = "pr_analyzer.cli:main"
 
