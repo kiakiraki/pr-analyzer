@@ -2,6 +2,7 @@
 
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from typing import cast
 
 import pandas as pd
 
@@ -87,12 +88,12 @@ def calculate_monthly_statistics(df: pd.DataFrame) -> pd.DataFrame:
         DataFrame with monthly statistics
     """
     # Filter only merged PRs
-    df_merged: pd.DataFrame = df[df["time_to_merge_days"].notna()].copy()
+    df_merged = cast(pd.DataFrame, df[df["time_to_merge_days"].notna()].copy())
 
     monthly_data = {}
 
     for month in df_merged["month"].unique():
-        month_prs: pd.DataFrame = df_merged[df_merged["month"] == month]
+        month_prs = cast(pd.DataFrame, df_merged[df_merged["month"] == month])
 
         stats = {
             "month": month,
