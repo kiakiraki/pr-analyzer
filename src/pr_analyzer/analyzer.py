@@ -87,12 +87,12 @@ def calculate_monthly_statistics(df: pd.DataFrame) -> pd.DataFrame:
         DataFrame with monthly statistics
     """
     # Filter only merged PRs
-    df_merged = df[df["time_to_merge_days"].notna()].copy()
+    df_merged: pd.DataFrame = df[df["time_to_merge_days"].notna()].copy()
 
     monthly_data = {}
 
     for month in df_merged["month"].unique():
-        month_prs = df_merged[df_merged["month"] == month]
+        month_prs: pd.DataFrame = df_merged[df_merged["month"] == month]
 
         stats = {
             "month": month,
