@@ -164,7 +164,11 @@ def analyze(
     "--input", "-i", "input_file", required=True, help="Monthly statistics JSON file"
 )
 @click.option("--output-dir", "-o", default=".", help="Output directory")
-@click.option("--repo", default=None, help='Repository name to display in title (e.g., "owner/repo")')
+@click.option(
+    "--repo",
+    default=None,
+    help='Repository name to display in title (e.g., "owner/repo")',
+)
 def visualize(input_file: str, output_dir: str, repo: str | None):
     """Generate visualization charts."""
     try:
@@ -294,7 +298,9 @@ def run(
         click.echo("STEP 3: Generating visualizations")
         click.echo("=" * 70)
 
-        create_all_visualizations(monthly_stats, output_dir=str(output_dir_path), repo_name=repo)
+        create_all_visualizations(
+            monthly_stats, output_dir=str(output_dir_path), repo_name=repo
+        )
 
         # Summary
         click.echo("\n" + "=" * 70)
